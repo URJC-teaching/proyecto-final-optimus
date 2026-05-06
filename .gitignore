@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# ROS 2 / colcon (estos NO van al repo, se generan al build)
+build/
+install/
+log/
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# Local Claude/agent settings (no se comparten)
+.claude/
+
+
+# Backups y temporales
+*.bak
+*.tmp
+
+DEMO_DIA_D.md
+DOCUMENTACION_PROYECTO_FINAL.md
+INSTALL.md
+MEDIR_WAYPOINTS.md
+PARA_COMPAÑERO.md
+setup.sh
+
+
