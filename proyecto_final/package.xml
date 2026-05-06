@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>proyecto_final</name>
+  <version>0.0.1</version>
+  <description>Proyecto final Robotica - Repartidor autonomo (Nav2 + HRI + YOLO)</description>
+  <maintainer email="a.ruizf.2022@alumnos.urjc.es">Angel Ruiz</maintainer>
+  <license>Apache-2.0</license>
+
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav2_msgs</depend>
+  <depend>action_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
+  <depend>vision_msgs</depend>
+  <depend>navigation_client</depend>
+  <depend>hri_client</depend>
+  <depend>simple_hri_interfaces</depend>
+
+  <!-- Para los launches: lanzan kobuki sim/nav, yolo_bringup, etc. -->
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
+
+  <!-- Dependencias OPCIONALES (solo si vas a usar YOLO):
+         - camera           (asr-clase/sensors/camera): converter
+                            yolo_msgs/DetectionArray -> vision_msgs/Detection3DArray.
+         - yolo_bringup     (yolo_ros): la red neuronal.
+         - yolo_msgs        (yolo_ros): mensajes de YOLO.
+
+       NO las declaramos como <exec_depend> para que el paquete sea
+       instalable y ejecutable en modo minimo (solo Nav2). Si vas a usar
+       YOLO, asegurate de tenerlas en tu workspace. Si no, lanza con:
+         skip_yolo:=true launch_yolo:=false
+       y el delivery_node y los launches lo respetan (no se suscriben,
+       no lanzan converter ni bringup). -->
+
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

@@ -1,0 +1,40 @@
+# Waypoints del proyecto final (mapa: maps/clase.yaml).
+#
+# Para sacar coordenadas: en RViz click "2D Goal Pose" sobre el punto y
+# luego  ros2 topic echo --once /goal_pose
+# yaw en radianes. Conversion desde quaternion (z, w):
+#   python3 -c "import math; print(2*math.atan2(z, w))"
+
+delivery_node:
+  ros__parameters:
+    # --- Origen / casa ---
+    home.x: -2.94
+    home.y: -0.447
+    home.yaw: 0.0
+
+    # --- Destino 1: cocina ---
+    dest1.name: "cocina"
+    dest1.x: -6.58
+    dest1.y: -5.71
+    dest1.yaw: 0.0025
+    dest1.keywords: ["cocina", "comedor"]
+
+    # --- Destino 2: secretaria ---
+    dest2.name: "secretaria"
+    dest2.x: 0.525
+    dest2.y: 2.54
+    dest2.yaw: 0.0
+    dest2.keywords: ["secretaria", "secretaría", "despacho", "oficina"]
+
+    # --- Comportamiento ---
+    extract_interest: "destino"
+    detection_topic: "/detections_3d"
+    target_class: "person"
+    receiver_timeout_sec: 15.0
+    pickup_timeout_sec: 15.0
+    max_dest_retries: 3
+    # Total espera por servicios HRI (se divide entre 4 internamente)
+    hri_wait_timeout_sec: 60.0
+    # Reintentos de Nav2 si rechaza el goal (bt_navigator no ACTIVE)
+    max_nav_retries: 5
+    nav_retry_delay_sec: 2.0

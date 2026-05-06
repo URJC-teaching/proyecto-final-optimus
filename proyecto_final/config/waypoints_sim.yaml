@@ -1,0 +1,34 @@
+# Waypoints para simulacion (Gazebo + aws_house.world).
+# Coordenadas medidas con "2D Goal Pose" en RViz + ros2 topic echo /goal_pose.
+
+delivery_node:
+  ros__parameters:
+    # --- Origen / casa (centro de aws_house) ---
+    home.x: 0.0
+    home.y: 0.0
+    home.yaw: 0.0
+
+    # --- Destino 1: cocina ---
+    dest1.name: "cocina"
+    dest1.x: 3.0
+    dest1.y: -2.0
+    dest1.yaw: 0.0
+    dest1.keywords: ["cocina", "comedor"]
+
+    # --- Destino 2: secretaria ---
+    dest2.name: "secretaria"
+    dest2.x: -3.0
+    dest2.y: 2.0
+    dest2.yaw: 1.5708
+    dest2.keywords: ["secretaria", "secretaría", "despacho", "oficina"]
+
+    # --- Comportamiento ---
+    extract_interest: "destino"
+    detection_topic: "/detections_3d"
+    target_class: "person"
+    receiver_timeout_sec: 15.0
+    pickup_timeout_sec: 15.0
+    max_dest_retries: 3
+    hri_wait_timeout_sec: 60.0
+    max_nav_retries: 5
+    nav_retry_delay_sec: 2.0
