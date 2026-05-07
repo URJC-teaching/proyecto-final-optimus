@@ -20,7 +20,7 @@ delivery_node:
     dest1.keywords: ["cocina", "comedor"]
 
     # --- Destino 2: secretaria ---
-    dest2.name: "secretaria"
+    dest2.name: "oficina"
     dest2.x: 0.525
     dest2.y: 2.54
     dest2.yaw: 0.0
